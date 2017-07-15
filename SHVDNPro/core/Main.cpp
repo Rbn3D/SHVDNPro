@@ -67,6 +67,7 @@ void LoadScriptDomain()
 	GTA::WriteLog("Created ScriptDomain!");
 
 	GTA::ManagedGlobals::g_scriptDomain->FindAllTypes();
+	GTA::ManagedGlobals::g_scriptDomain->setDomainInitialized(true);
 }
 
 static bool ManagedScriptInit(int scriptIndex, void* fiberMain, void* fiberScript)

@@ -9,6 +9,7 @@ namespace GTA
 	internal:
 		array<System::Type^>^ m_types;
 		array<GTA::Script^>^ m_scripts;
+		bool domainInitialized;
 
 	public:
 		ScriptDomain();
@@ -28,5 +29,8 @@ namespace GTA
 
 		void OnUnhandledException(System::Object^ sender, System::UnhandledExceptionEventArgs^ e);
 		System::Reflection::Assembly^ OnAssemblyResolve(System::Object^ sender, System::ResolveEventArgs^ args);
+
+		bool isDomainInitialized();
+		void setDomainInitialized(bool value);
 	};
 }

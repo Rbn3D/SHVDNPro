@@ -11,6 +11,10 @@ void ManagedScriptKeyboardMessage(unsigned long key, unsigned short repeats, uns
 		return;
 	}
 
+	if (!GTA::ManagedGlobals::g_scriptDomain->isDomainInitialized()) {
+		return;
+	}
+
 	bool ctrl = (GetAsyncKeyState(VK_CONTROL) & 0x8000) != 0;
 	bool shift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
 	bool status = !isUpNow;

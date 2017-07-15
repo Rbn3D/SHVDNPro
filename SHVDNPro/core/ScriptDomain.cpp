@@ -15,6 +15,8 @@ GTA::ScriptDomain::ScriptDomain()
 	System::AppDomain::CurrentDomain->AssemblyResolve += gcnew System::ResolveEventHandler(this, &GTA::ScriptDomain::OnAssemblyResolve);
 
 	GTA::ManagedGlobals::g_scriptDomain = this;
+
+	domainInitialized = false;
 }
 
 void GTA::ScriptDomain::FindAllTypes()
@@ -186,4 +188,14 @@ System::Reflection::Assembly^ GTA::ScriptDomain::OnAssemblyResolve(System::Objec
 	}
 
 	return nullptr;
+}
+
+bool GTA::ScriptDomain::isDomainInitialized()
+{
+	return domainInitialized;
+}
+
+void GTA::ScriptDomain::setDomainInitialized(bool value)
+{
+	domainInitialized = value;
 }
