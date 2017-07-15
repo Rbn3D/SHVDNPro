@@ -11,7 +11,7 @@ void ManagedScriptKeyboardMessage(unsigned long key, unsigned short repeats, uns
 		return;
 	}
 
-	if (!GTA::ManagedGlobals::g_scriptDomain->isDomainInitialized()) {
+	if (GTA::ManagedGlobals::g_scriptDomain == nullptr || !GTA::ManagedGlobals::g_scriptDomain->isDomainInitialized()) {
 		return;
 	}
 
